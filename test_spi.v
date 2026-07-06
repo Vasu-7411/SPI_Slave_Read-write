@@ -10,14 +10,13 @@ spi dut(sdio,sclk,sen,reset);
 
 always #5 sclk=~sclk;
 
-reg[23:0]in=24'b000010101010101110101011;
-//reg[23:0]in=24'b100010101010101110101011;
+reg[23:0]in=24'b100010101010101110101011;
 assign sdio=(decide)?sdio_test:1'hz;
 
 initial 
  begin
   decide<=1;
-  //dut.memory[2731]=8'b10101011;
+  dut.memory[2731]=8'b10101011;
   sclk=1'b0;
   sen=1'b1;
   #12 sen=1'b0;
